@@ -2,16 +2,13 @@ const apiUrl = "http://localhost:3000";
 let edit = false;
 let editId = 0;
 
-// estou mapeando o elemento lista (<table></table>) do html.
 const list = document.getElementById("info-movie");
 
-// crio uma funcao onde é possivel realizar uma requisicao [GET] para a api que retorna uma lista de vagas
 const getMovies = async () => {
 
   const response = await fetch(`${apiUrl}/movies`);
   const movies = await response.json();
   
-  // itera a lista e para cada objeto ele pode fazer alguma coisa
   movies.map((movie) => {
     list.insertAdjacentHTML(
       "beforeend",
@@ -50,11 +47,19 @@ const submit = async () => {
     const title = document.getElementById('title').value;
     const genre = document.getElementById('genre').value;
     const rating = document.getElementById('rating').value;
-    const status = document.getElementById('status').value;
+    const check = document.getElementById('status').checked;
     const image = document.getElementById('image').value;
-
+    console.log(check);
     
+    if(check != true) {
+        var status = "Não Assistido"
+    } 
+    else {
+        var status = "Assistido"
+    }
+
     const movie = {
+                
         title,
         genre,
         rating,
@@ -69,9 +74,6 @@ const submit = async () => {
     }
     
 }
-
-
-
 
 const postMovie = async (movie) => {
 
@@ -89,8 +91,7 @@ const postMovie = async (movie) => {
     reset();
 }
 
-// [PUT] http://localhost:3000/vagas/edit/{id} - recebe o objeto transforma em json e envia para a api juntamente com o seu id para que possa
-// ser editado
+
 const putMovie = async (movie) => {
 
     const response = await fetch(`${apiUrl}/movies/edit/${editId}`, {
@@ -110,25 +111,33 @@ const putMovie = async (movie) => {
     editId = 0;
 }
 
-// preenche os dados do formulario de acordo com a vaga encontrada no backend pelo seu id
 const movieEdit = async (id) => {
 
     edit = true;
     editId = id;
 
     const movie = await getById(id);
+    console.log(movie.status)
+
+    if(movie.status != "Assistido") {
+        var check = false
+        var check2 = true
+    } 
+    else {
+        var check  = true
+        var check2 = false
+    }
 
     document.getElementById('title').value = movie.title;
     document.getElementById('genre').value  = movie.genre;
     document.getElementById('rating').value = movie.rating;
-    document.getElementById('status').value = movie.status;
+    document.getElementById('status').checked = check;
+    document.getElementById('status2').checked = check2;
     document.getElementById('image').value = movie.image;
-
 
 }
 
 
-// recebe um id e faz a chamada para a api e retorna o objeto encontrado
 const getById = async (id) => {
 
     const response = await fetch(`${apiUrl}/movies/${id}`)
@@ -136,7 +145,6 @@ const getById = async (id) => {
     return movie
 }
 
-//[DELETE] http://localhost:3000/vagas/delete/1 Recebo um id e excluo a vaga do backend
 const deleteMovie = async (id) => {
     const response = await fetch(`${apiUrl}/movies/delete/${id}`, {
         method: 'DELETE'
@@ -156,6 +164,8 @@ const reset = () => {
     document.getElementById('rating').value = '';
     document.getElementById('status').value = '';
     document.getElementById('image').value = '';
+    document.getElementById('status').checked = false;
+    document.getElementById('status2').checked = false;
 
 }
 
