@@ -1,62 +1,58 @@
 @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&display=swap");
 
 body {
-  height: 100vh;
-  width: 80%;
-  background-color: #0b2545;
   margin: 0 10% 0 10%;
+  background-image: url(../img/green.jpg);
+  background-size: contain;
+  background-position: initial;
+  background-attachment: fixed;
+  background-size: cover;
+  min-width: 1400px;
+
 }
 
-
+#maintitle {
+  font-size: 60px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 0 5px green, 0 0 5px green, 0 0 10px green;
+}
 
 h2 {
   margin-top: 20px;
-  color: #13315c;
+  color: white;
   font-weight: bold;
-  /* font-family: 'M PLUS Rounded 1c', sans-serif; */
 }
 
 h3 {
-  color: #13315c;
+  color: white;
   font-weight: bold;
 }
 
-p {
-  margin-top: 10px;
-  font-size: 10px;
-  text-align: center;
-}
 
-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-#logo-img {
-  width: 200px;
-}
-
-#svg-img {
-  width: 40px;
-}
 
 html {
   width: 100%;
+  min-width: 1400px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  background-color: white;
 }
 
 main {
   display: flex;
   scroll-behavior: smooth;
   width: 100%;
-  min-width: 554px;
-  height: 74%;
+  min-width: 70%;
+  height: 70%;
   margin-top: 10px;
   padding: 10px;
-  border: 1px solid black;
-  border-radius: 50px;
-  background-color: #8da9c4;
-
+  border: 1px solid white;
+  border-radius: 0px;
+  background-color: transparent;
   background-position: center;
   overflow: auto;
 }
@@ -64,10 +60,8 @@ main {
 main::-webkit-scrollbar {
   width: 5px;
   height: 8px;
-  background-color: transparent; /* or add it to the track */
+  background-color: transparent;
 }
-
-
 
 section {
   width: 100%;
@@ -75,10 +69,28 @@ section {
 
 }
 
-.info-movie {
-  width: 79vw;
- 
+input, select {
+  max-width: 500px;
+}
 
+
+form {
+  min-width: 1226px;
+}
+
+form-group {
+  min-width: 400px;
+}
+
+section {
+  width: 100%;
+  display: flex;
+}
+
+.info-movie {
+  width: 100%;
+  min-width: 1400px;
+  height: 100%;
   margin-top: 10px;
   display: flex;
   flex-direction: row;
@@ -86,77 +98,78 @@ section {
   align-items: center;
   justify-content: space-evenly;
   /* border-inline: 1px solid; */
-  
 }
 
 #movie {
-  width: 30vw;
+  width: 35vw;
+  min-width: 500px;
   height: 15vw;
-  min-width: 320px;
-  min-height: 142px;
+  min-height: 214px;
   margin: 10px 0px 10px 0px;
   display: flex;
-  /* flex-direction: row; */
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   /* border-inline: 1px solid; */
   border: 5px solid;
   border-radius: 25px;
-  border-color:#0b2545;
-
+  border-color: white;
 }
 
 #movie:hover {
-  box-shadow: 0 0 5px white, 0 0 5px white, 0 0 10px white;
+  box-shadow: 0 0 5px green, 0 0 5px green, 0 0 10px green;
   cursor: pointer;
-
 }
 
-
-
 #movie-cover {
-  width:100%;
+  width: 100%;
   height: 100%;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  border-right: 2px solid #0b2545;
+  border-right: 2px solid white;
+}
+
+#input {
+  margin-top: 55px;
+  display: flex;
+  justify-content: space-around;
+  width: inherit;
 }
 
 #div-img {
-  width: 40%;
+  width: 30%;
   height: 100%;
 }
 
 #div-info {
   display: flex;
   flex-direction: column;
-  width: 55%;
-  height: inherit;
-  padding: 0 5px 0 0;
+  width: 65%;
+  height: 100%;
+  padding: 0 5px 5px 5px;
   justify-content: space-evenly;
+  align-items: center;
   min-height: 100px;
 }
 
-
 #div-info h3 {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
-  font-size: 30px;
+  font-size: 25px;
   overflow: hidden;
- text-overflow: ellipsis;
- white-space: nowrap;
- width: 100%;
- height: 100%;
- margin: 0;
- padding: 0 3px 0 3px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0 3px 0 3px;
 }
 
 #div-info h3:hover {
-  text-shadow: 0 0 5px white, 0 0 5px white, 0 0 10px white;
+  text-shadow: 0 0 5px green, 0 0 5px green, 0 0 10px green;
   cursor: pointer;
-
 }
 
 .info-input {
@@ -164,8 +177,6 @@ section {
   height: 100%;
   padding: 0 17px 0 17px;
 
-  /* border-left: 1px solid; */
-  /* border-radius: 8px; */
 }
 
 .div-field {
@@ -173,19 +184,13 @@ section {
   justify-content: space-between;
   width: 100%;
   height: 100%;
-  /* border-left: 1px solid; */
-  /* border-radius: 8px; */
+ 
 }
 
 #info-input-img {
-  border-left: 2px solid #13315c;
+  border-left: 2px solid white;
 }
 
-
-
-/* #rating {
-    width:unset;
-} */
 
 #insert {
   width: 100%;
@@ -203,51 +208,28 @@ form {
   font-size: 25px;
 }
 
-#register-button {
-  width: 150px;
-  font-size: 25px;
-  border-radius: 25px;
-  background-color: #81c3d7;
-  color: #13315c;
-  font-weight: bold;
-  border: 2px solid;
-}
+
 
 input,
 select {
   background-color: inherit;
   border-style: none;
-  border-bottom: 2px solid #13315c;
+  border-bottom: 2px solid white;
   font-size: 20px;
   width: 65%;
   color: #13315c;
 }
 
 label {
-  color: #13315c;
+  color: white;
 }
-
-
 
 a {
   text-decoration: none;
 }
 
-.insert-button {
-  display: block;
-  width: 100px;
-  height: 100px;
-  border-radius: 100px;
-  font-size: 16px;
-  background-color: #81c3d7;
-  color: #13315c;
-  font-weight: bold;
-  border: 2px solid;
-  box-shadow: 0 0 5px #13315c, 0 0 5px #81c3d7, 0 0 10px #ffffff;
-}
-
 .insert-button:hover {
-  box-shadow: 0 0 5px white, 0 0 5px white, 0 0 10px white;
+  box-shadow: 0 0 5px green, 0 0 5px green, 0 0 10px green;
   cursor: pointer;
 }
 
@@ -259,38 +241,8 @@ a {
   margin-top: 25px;
 }
 
-/* message */
-#message {
-  background-color: #13315c;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 8px;
-  position: sticky;
-  top: 300px;
-  width: inherit;
-  box-shadow: 0 0 5px red, 0 0 5px rgb(209, 194, 194), 0 0 10px red;
 
+#row2 {
+  margin-top: 10px;
 }
 
-#message p {
-  font-size: 20px;
-}
-
-#close-img:hover {
-  box-shadow: 0 0 5px white, 0 0 5px white, 0 0 10px white;
-  cursor: pointer;
-}
-
-#close {
-  font-size: 40px;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-}
-
-#close-img {
-  width: 40px;
-  height: 40px;
-  background-color: #81c3d7;
-}

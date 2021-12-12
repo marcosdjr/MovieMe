@@ -13,6 +13,5 @@ router.put('/edit/:id', moviesController.putMovie)
 router.delete('/delete/:id', moviesController.deleteMovie)
 
 
-// exporto as rotas para serem ultilizadas no index
 module.exports = router;
 
